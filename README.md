@@ -12,29 +12,28 @@ Orca operates on the principle that certain crypto assets maintain long-term rel
 
 ### Pair Selection Criteria
 - **Cointegration Analysis**: Pairs must show statistical cointegration over 2-year periods
+- **Copula-based Dependency**: Strong copula dependency with tail risk opportunities
 - **Liquidity Requirements**: Minimum daily volume and tight bid-ask spreads
-- **Correlation Threshold**: High correlation (>0.7) with periodic divergences
+- **Tail Risk Profile**: Pairs with significant tail dependencies for arbitrage opportunities
 - **Sector Relationships**: Focus on related assets (same ecosystem, sector, or function)
 
 ### Target Asset Categories
 
 #### 1. Layer 1 Blockchain Pairs
-- ETH/ADA (Ethereum vs Cardano)
-- ETH/SOL (Ethereum vs Solana)
-- SOL/AVAX (Solana vs Avalanche)
-- ADA/DOT (Cardano vs Polkadot)
+- ETHUSDT, ADAUSDT (Ethereum vs Cardano)
+- ETHUSDT, SOLUSDT (Ethereum vs Solana)
+- SOLUSDT, AVAXUSDT (Solana vs Avalanche)
+- ADAUSDT, DOTUSDT (Cardano vs Polkadot)
 
 #### 2. DeFi Token Pairs
-- UNI/SUSHI (DEX protocols)
-- AAVE/COMP (Lending protocols)
-- CRV/BAL (DeFi yield aggregators)
-- SNX/PERP (Synthetic assets)
+- UNIUSDT, SUSHIUSDT (DEX protocols)
+- AAVEUSDT, COMPUSDT (Lending protocols)
+- CRVUSDT, BALUSDT (DeFi yield aggregators)
+- SNXUSDT (Synthetic assets)
 
 #### 3. Cross-Ecosystem Pairs
-- ETH/LINK (Ethereum vs Oracle)
-- ETH/UNI (Ethereum vs DeFi)
-- SOL/RAY (Solana ecosystem)
-- AVAX/AAVE (Avalanche DeFi)
+- LINKUSDT (Oracle tokens)
+- RAYUSDT (Solana ecosystem)
 
 ### Trading Parameters
 - **Frequency**: Medium-term (hours to days)
@@ -67,10 +66,12 @@ Orca operates on the principle that certain crypto assets maintain long-term rel
 - Spread calculation and normalization
 
 #### 3. Signal Generation
-- Z-score based entry/exit signals
-- Threshold optimization
-- False signal filtering
-- Risk-adjusted position sizing
+- **Copula-based Analysis**: Capture non-linear dependencies and tail risk
+- **Dependency Modeling**: Gaussian, Student-t, and Archimedean copulas
+- **Tail Risk Detection**: Extreme divergence identification
+- **Threshold Optimization**: Dynamic signal thresholds based on copula parameters
+- **False Signal Filtering**: Copula-based confidence intervals
+- **Risk-adjusted Position Sizing**: Copula-derived risk metrics
 
 #### 4. Risk Management
 - **Position Sizing**: 10% of portfolio per pair
@@ -90,6 +91,7 @@ Orca operates on the principle that certain crypto assets maintain long-term rel
 - **Language**: Python 3.9+
 - **Data Processing**: pandas, numpy
 - **Statistical Analysis**: scipy, statsmodels
+- **Copula Analysis**: copulas, copulae (copula modeling libraries)
 - **Machine Learning**: scikit-learn (for feature engineering)
 - **Visualization**: matplotlib, plotly
 - **API Integration**: ccxt (for Bybit)
@@ -106,15 +108,17 @@ Orca operates on the principle that certain crypto assets maintain long-term rel
 
 ### Phase 2: Pair Analysis (Week 3-4)
 - [ ] Implement cointegration testing
-- [ ] Develop correlation analysis tools
-- [ ] Create pair selection algorithm
-- [ ] Build spread calculation engine
+- [ ] Develop copula-based dependency modeling
+- [ ] Create pair selection algorithm using copula analysis
+- [ ] Build copula-based spread calculation engine
+- [ ] Implement tail risk detection algorithms
 
 ### Phase 3: Signal Generation (Week 5-6)
-- [ ] Design entry/exit logic
-- [ ] Implement position sizing
-- [ ] Create signal filtering
-- [ ] Develop risk management rules
+- [ ] Implement copula-based signal generation
+- [ ] Design dynamic threshold optimization
+- [ ] Create copula-based confidence intervals
+- [ ] Develop copula-derived risk metrics
+- [ ] Implement tail risk-based position sizing
 
 ### Phase 4: Backtesting (Week 7-8)
 - [ ] Build backtesting framework
@@ -189,14 +193,6 @@ pip install -r requirements.txt
 2. Configure database settings
 3. Adjust risk parameters
 4. Select target pairs
-
-## Contributing
-
-This project is open for collaboration. Please read our contributing guidelines before submitting pull requests.
-
-## License
-
-[Add your chosen license]
 
 ## Disclaimer
 
